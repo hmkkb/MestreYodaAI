@@ -31,11 +31,11 @@ data = json.loads(config_path.read_text())
 wa = data.setdefault('channels', {}).setdefault('whatsapp', {})
 groups = wa.setdefault('groups', {})
 
-if jid in groups:
-    print(f'Grupo já existe na config: {jid}')
+if jid not in groups:
+    print(f'Grupo não existe na config: {jid}')
 else:
-    groups[jid] = {"requireMention": False}
-    print(f'Grupo adicionado: {jid}')
+    del groups[jid]
+    print(f'Grupo removido: {jid}')
 
 config_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 PY
@@ -43,4 +43,4 @@ PY
 echo "Reiniciando gateway..."
 kill -USR1 1 || true
 
-echo "Concluído. Grupo liberado: $JID"
+echo "Concluído. Grupo revogado: $JID"
