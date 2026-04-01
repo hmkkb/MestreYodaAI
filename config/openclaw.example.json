@@ -1,0 +1,19 @@
+{
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "messagePrefix": "/mestre",
+      "responsePrefix": "Yoda:",
+      "groups": {
+        "120363000000000000@g.us": {
+          "requireMention": false
+        }
+      },
+      "groupAllowFrom": [
+        "*"
+      ]
+    }
+  }
+}

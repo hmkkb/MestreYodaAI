@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  openclaw:
+    image: ghcr.io/hostinger/hvps-openclaw:latest
+    container_name: openclaw-gwzl-openclaw-1
+    restart: unless-stopped
+    ports:
+      - "55513:55513"
+    volumes:
+      - /data/.openclaw:/data/.openclaw
+    environment:
+      - TZ=America/Sao_Paulo
